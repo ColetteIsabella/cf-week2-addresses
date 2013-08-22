@@ -3,6 +3,7 @@ require 'highline/import'
 class Person
   attr_accessor :first_name
   attr_accessor :last_name
+  attr_accessor :age
   attr_accessor :phone
 
   def full_name
@@ -10,9 +11,19 @@ class Person
   end
 end
 
+def person_age
+    first_name + " is " + age
+  end
+end
+
 class Contacts
   def self.run
     people = []
+
+    when :columns_across
+      max_length = actual_length(
+        items.max { |a, b| actual_length(a) <=> actual_length(b)})
+
 
     loop do
       command = ask("> ")
