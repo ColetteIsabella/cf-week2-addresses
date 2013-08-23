@@ -11,28 +11,21 @@ class Person
   end
 end
 
-def person_age
-    first_name + " is " + age
-  end
-end
-
 class Contacts
   def self.run
     people = []
-
-    when :columns_across
-      max_length = actual_length(
-        items.max { |a, b| actual_length(a) <=> actual_length(b)})
 
 
     loop do
       command = ask("> ")
 
       if command == "list"
-        puts "Name".ljust(30) + "Phone".rjust(12)
+
+        puts "Name".ljust(20) + "Phone".rjust(12) + "Age".rjust(10)
         puts "-" * 42
         people.each do |person|
-          puts person.full_name.ljust(30) + person.phone.rjust(12)
+          puts person.full_name.ljust(20) + person.phone.rjust(12) +
+          person.age.rjust(10)
         end
 
       elsif command == "add"
@@ -41,7 +34,7 @@ class Contacts
         person.first_name = ask("First Name: ")
         person.last_name  = ask("Last Name: ")
         person.phone      = ask("Phone: ")
-
+        person.age        = ask("age: ")
         people.push(person)
       elsif command == "quit"
         break
